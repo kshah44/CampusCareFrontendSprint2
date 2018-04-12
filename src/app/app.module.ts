@@ -15,17 +15,27 @@ import { ConsumerHomepageComponent } from './consumer-homepage/consumer-homepage
 import { SignupOptionsComponent } from './signup-options/signup-options.component';
 import { TestProviderComponent } from './test-provider/test-provider.component';
 import { TemplateComponent } from './template/template.component';
+import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { ConsumerlistComponent } from './consumerlist/consumerlist.component';
+import { ProviderListComponent } from './provider-list/provider-list.component';
+import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.component';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 
 const appRoutes:Routes = [
   {path:'loginconsumer', component:LoginformComponent},
   {path:'loginprovider', component:LoginProviderComponent},
   {path:'', redirectTo:'/loginconsumer',pathMatch:'full'},
+  {path:'adminhome',component:AdminHomepageComponent},
   {path:'signupconsumer', component:SignupConsumerComponent},
   {path:'signupprovider', component:SignupProviderComponent},
   {path:'consumerhome', component:ConsumerHomepageComponent},
   {path:'providerhome', component:ProviderHomeComponent},
   {path:'signupoptions', component:SignupOptionsComponent},
-  {path:'testprovider', component:TestProviderComponent}
+  {path:'testprovider', component:TestProviderComponent},
+  {path:'providerlist', component:ProviderListComponent},
+  {path:'consumerprofile/:id', component:ConsumerProfileComponent},
+  {path:'providerprofile/:id', component:ProviderProfileComponent}
+  
 
 ]
 
@@ -40,7 +50,12 @@ const appRoutes:Routes = [
     ConsumerHomepageComponent,
     SignupOptionsComponent,
     TestProviderComponent,
-    TemplateComponent
+    TemplateComponent,
+    AdminHomepageComponent,
+    ConsumerlistComponent,
+    ProviderListComponent,
+    ConsumerProfileComponent,
+    ProviderProfileComponent
   ],
   imports: [
     BrowserModule,
