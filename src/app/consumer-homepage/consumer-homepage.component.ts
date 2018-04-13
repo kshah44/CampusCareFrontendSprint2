@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-consumer-homepage',
@@ -8,7 +9,8 @@ import {Router} from '@angular/router'
 })
 export class ConsumerHomepageComponent implements OnInit {
   firstName:string = "";
-  constructor(private router:Router) { }
+  categories:any;
+  constructor(private router:Router,private httpClient:HttpClient) { }
 
   ngOnInit() {
     let consumer = JSON.parse(sessionStorage.getItem("consumer"));
@@ -20,6 +22,19 @@ export class ConsumerHomepageComponent implements OnInit {
     }else{
       this.router.navigate(['./loginconsumer'])
     }
+    this.httpClient.get(`http://localhost:8080/categories`)
+    .subscribe(
+      (data:any) => {
+
+        
+
+        console.log(data);
+        this.categories = data;
+      
+        
+      }
+
+    )
     
   }
 

@@ -6,6 +6,12 @@
       <div *ngIf = "formValid;" class="alert alert-danger">
         Invalid username or password !
     </div>
+    <div *ngIf = "signinsuccess" class="alert alert-success">
+        New Account Created, Login to access.
+    </div>
+    <div *ngIf = "accountexists" class="alert alert-success">
+      User already exists, login to continue.
+  </div>
   
       <form> 
         <div class="form-group">

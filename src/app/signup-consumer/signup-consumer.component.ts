@@ -19,11 +19,15 @@ export class SignupConsumerComponent implements OnInit {
     .subscribe(
       (data:any) => {
 
-        if(data.userName != "null"){
+        console.log(data);
+
+        if(data.userName != null){
+          sessionStorage.setItem("signinsuccess","true");
           this.router.navigate(['./loginconsumer'])
         }
         else{
-          this.router.navigate(['./signupconsumer'])
+          sessionStorage.setItem("accountexists","true");
+          this.router.navigate(['./loginconsumer'])
         }
       }
         

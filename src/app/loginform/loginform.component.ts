@@ -9,6 +9,9 @@ import {Router} from '@angular/router'
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
+
+  signinsuccess:boolean = false;
+  accountexists:boolean = false;
   
 
   constructor(private httpClient:HttpClient,private router:Router) { 
@@ -22,6 +25,16 @@ export class LoginformComponent implements OnInit {
   formValid:boolean = false;
 
   ngOnInit() {
+    if(sessionStorage.getItem("signinsuccess")=="true"){
+      this.signinsuccess = true;
+    }else{
+      this.signinsuccess = false;
+    }
+    if(sessionStorage.getItem("accountexists")=="true"){
+      this.accountexists = true;
+    }else{
+      this.accountexists = false;
+    }
     
     sessionStorage.clear();
   }

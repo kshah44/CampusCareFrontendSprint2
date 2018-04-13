@@ -1,5 +1,134 @@
-<div class="container">
-  <div class="jumbotron">
-    <h2>Welcome {{firstName}}, to Service Provider Home Page.</h2>
-  </div>
-</div>
+   <!-- Left Panel -->
+
+   <aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" ><i class="ti ti-face-smile"></i></a>
+            <a class="navbar-brand hidden" href="./"><i class="ti ti-face-smile"></i></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                <h3 class="menu-title">Manage Profile</h3><!-- /.menu-title -->
+                <li class="menu-item">
+                    <a routerLink="/providerhome" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Categories</a>
+      
+                </li>
+               
+                
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside><!-- /#left-panel -->
+ <!-- Right Panel -->
+
+   <!-- Right Panel -->
+
+   <div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a routerLink="/loginprovider" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Logout
+                    </a>
+
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+    </header><!-- /header -->
+    <!-- Header-->
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                       
+                        <li class="active">Categories</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Categories</strong>
+                    </div>
+                    <div class="card-body">
+              <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Category name</th>
+                    <th>Add/Remove</th>
+
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let category of categories">
+                      
+                      <td>{{category.categoryName}}</td>
+                      
+                      <td *ngIf = "!(checkPresence(category.categoryId))"><button class="btn btn-info" (click) = removeItem(category.categoryId) >Remove</button></td>
+                      <td *ngIf = "checkPresence(category.categoryId)"><button class="btn btn-info" (click) = addItem(category.categoryId)>Add</button></td>
+                     
+                      
+
+                      
+                     
+                      
+                       
+                  
+                    
+
+                  </tr>
+                 
+                  
+                </tbody>
+              </table>
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+</div><!-- /#right-panel -->
+
+<!-- Right Panel -->

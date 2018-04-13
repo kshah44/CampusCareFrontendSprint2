@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
 })
 export class LoginProviderComponent implements OnInit {
 
-  
+  signinsuccess:boolean = false;
+  accountexists:boolean = false;
   constructor(private httpClient:HttpClient,private router:Router) { }
 
   username:string = '';
@@ -18,6 +19,17 @@ export class LoginProviderComponent implements OnInit {
   formValid:boolean = false;
 
   ngOnInit() {
+    if(sessionStorage.getItem("signinsuccess")=="true"){
+      this.signinsuccess = true;
+    }else{
+      this.signinsuccess = false;
+    }
+    if(sessionStorage.getItem("accountexists")=="true"){
+      this.accountexists = true;
+    }else{
+      this.accountexists = false;
+    }
+    
     sessionStorage.clear();
   }
 
@@ -29,15 +41,10 @@ export class LoginProviderComponent implements OnInit {
     console.log(username,password);
     this.httpClient.post(`http://localhost:8080/loginprovider`,{
       userName: this.username,
-      password: this.password,
-      
-
+      password: this.password      
     })
     .subscribe(
       (data:any) => {
-
-        
-
         console.log(data.userName);
       
         if(data.userName != null){

@@ -18,11 +18,13 @@ export class SignupProviderComponent implements OnInit {
     .subscribe(
       (data:any) => {
 
-        if(data.userName != "null"){
+        if(data.userName != null){
+          sessionStorage.setItem("signinsuccess","true");
           this.router.navigate(['./loginprovider'])
         }
         else{
-          this.router.navigate(['./signupprovider'])
+          sessionStorage.setItem("accountexists","true");
+          this.router.navigate(['./loginprovider'])
         }
       }
         
