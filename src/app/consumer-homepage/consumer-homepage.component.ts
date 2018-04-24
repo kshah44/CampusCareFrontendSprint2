@@ -15,8 +15,8 @@ export class ConsumerHomepageComponent implements OnInit {
   ngOnInit() {
     let consumer = JSON.parse(sessionStorage.getItem("consumer"));
     
-    console.log(this.firstName);
-    if(sessionStorage.length > 0){
+    console.log(consumer);
+    if(consumer != null){
       this.firstName = consumer.firstName;
 
     }else{

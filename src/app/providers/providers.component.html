@@ -16,7 +16,7 @@
                 
                 <h3 class="menu-title">Manage Profile</h3><!-- /.menu-title -->
                 <li class="menu-item">
-                    <a routerLink="/providerhome" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Categories</a>
+                    <a routerLink="/consumerhome" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Categories</a>
       
                 </li>
                
@@ -44,13 +44,32 @@
             <div class="col-sm-5">
                 <div class="user-area dropdown float-right">
                     <a routerLink="/loginconsumer" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Logout
+                        Logout
                     </a>
 
                     
                 </div>
 
-                
+                <div class="language-select dropdown" id="language-select">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
+                        <i class="flag-icon flag-icon-us"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="language" >
+                        <div class="dropdown-item">
+                            <span class="flag-icon flag-icon-fr"></span>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-es"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-it"></i>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -71,7 +90,7 @@
                     <ol class="breadcrumb text-right">
                         <li><a href="#">Dashboard</a></li>
                        
-                        <li class="active">Categories</li>
+                        <li class="active">Provider List</li>
                     </ol>
                 </div>
             </div>
@@ -79,38 +98,32 @@
     </div>
 
     <div class="content mt-3">
+        <div *ngIf="!(providers.length > 0)" >
+            <h1>No Providers registered for this service at this time.</h1>
+        </div>
         <div class="animated fadeIn">
             <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-12"*ngIf="(providers.length > 0)">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Categories</strong>
+                        <strong class="card-title">Data Table</strong>
                     </div>
                     <div class="card-body">
               <table id="bootstrap-data-table" class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Category name</th>
-                    
-
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let category of categories">
-                      
-                      <td><a [routerLink]="['/providers',category.categoryId]">{{category.categoryName}}</a></td>
-                      
-                      
-                      
-
-                      
-                     
-                      
-                       
-                  
-                    
+                  <tr *ngFor="let provider of providers">
+                    <td><a [routerLink] ="['/providerprofile',provider.providerId]">{{provider.firstName}} {{provider.lastName}}</a></td>
+                    <td>{{provider.userName}}</td>
+                    <td>{{provider.email}}</td>
 
                   </tr>
                  

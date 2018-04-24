@@ -20,6 +20,8 @@ import { ConsumerlistComponent } from './consumerlist/consumerlist.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
 import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.component';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { ProvidersComponent } from './providers/providers.component';
+import { ProviderService } from './provider.service';
 
 const appRoutes:Routes = [
   {path:'loginconsumer', component:LoginformComponent},
@@ -34,7 +36,8 @@ const appRoutes:Routes = [
   {path:'testprovider', component:TestProviderComponent},
   {path:'providerlist', component:ProviderListComponent},
   {path:'consumerprofile/:id', component:ConsumerProfileComponent},
-  {path:'providerprofile/:id', component:ProviderProfileComponent}
+  {path:'providerprofile/:id', component:ProviderProfileComponent},
+  {path:'providers/:id', component:ProvidersComponent}
   
 
 ]
@@ -55,7 +58,8 @@ const appRoutes:Routes = [
     ConsumerlistComponent,
     ProviderListComponent,
     ConsumerProfileComponent,
-    ProviderProfileComponent
+    ProviderProfileComponent,
+    ProvidersComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,7 @@ const appRoutes:Routes = [
     FormsModule
     
   ],
-  providers: [],
+  providers: [ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

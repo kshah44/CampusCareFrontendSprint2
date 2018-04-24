@@ -20,7 +20,7 @@ export class ProviderHomeComponent implements OnInit {
     this.provider = JSON.parse(sessionStorage.getItem("provider"));
     
     console.log(this.firstName);
-    if(sessionStorage.length > 0){
+    if(this.provider != null){
       this.firstName = this.provider.firstName;
 
     }else{
