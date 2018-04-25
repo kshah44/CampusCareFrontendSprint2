@@ -16,7 +16,7 @@ export class ProviderListComponent implements OnInit {
   constructor(private httpClient:HttpClient,private router:Router) { }
 
   ngOnInit() {
-    this.httpClient.get(`http://localhost:8080/providername`)
+    this.httpClient.get(`http://localhost:8080/providername `)
     .subscribe(
       (data:any) => {
 

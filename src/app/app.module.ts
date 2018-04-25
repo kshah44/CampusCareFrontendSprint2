@@ -22,6 +22,7 @@ import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.co
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { ProvidersComponent } from './providers/providers.component';
 import { ProviderService } from './provider.service';
+import { ProviderProfileConsumerviewComponent } from './provider-profile-consumerview/provider-profile-consumerview.component';
 
 const appRoutes:Routes = [
   {path:'loginconsumer', component:LoginformComponent},
@@ -33,11 +34,12 @@ const appRoutes:Routes = [
   {path:'consumerhome', component:ConsumerHomepageComponent},
   {path:'providerhome', component:ProviderHomeComponent},
   {path:'signupoptions', component:SignupOptionsComponent},
-  {path:'testprovider', component:TestProviderComponent},
+  {path:'testprovider', component:TestProviderComponent}, 
   {path:'providerlist', component:ProviderListComponent},
   {path:'consumerprofile/:id', component:ConsumerProfileComponent},
   {path:'providerprofile/:id', component:ProviderProfileComponent},
-  {path:'providers/:id', component:ProvidersComponent}
+  {path:'providers/:id', component:ProvidersComponent},
+  {path:'providerconsumerview/:id', component:ProviderProfileConsumerviewComponent}
   
 
 ]
@@ -59,7 +61,8 @@ const appRoutes:Routes = [
     ProviderListComponent,
     ConsumerProfileComponent,
     ProviderProfileComponent,
-    ProvidersComponent
+    ProvidersComponent,
+    ProviderProfileConsumerviewComponent
   ],
   imports: [
     BrowserModule,
