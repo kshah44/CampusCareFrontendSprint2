@@ -23,6 +23,8 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { ProvidersComponent } from './providers/providers.component';
 import { ProviderService } from './provider.service';
 import { ProviderProfileConsumerviewComponent } from './provider-profile-consumerview/provider-profile-consumerview.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { ProviderRequestsComponent } from './provider-requests/provider-requests.component';
 
 const appRoutes:Routes = [
   {path:'loginconsumer', component:LoginformComponent},
@@ -39,7 +41,11 @@ const appRoutes:Routes = [
   {path:'consumerprofile/:id', component:ConsumerProfileComponent},
   {path:'providerprofile/:id', component:ProviderProfileComponent},
   {path:'providers/:id', component:ProvidersComponent},
-  {path:'providerconsumerview/:id', component:ProviderProfileConsumerviewComponent}
+  {path:'providerconsumerview/:id', component:ProviderProfileConsumerviewComponent},
+  {path:'loginadmin', component:AdminLoginComponent},
+  {path:'providerrequests', component:ProviderRequestsComponent}
+
+
   
 
 ]
@@ -62,7 +68,9 @@ const appRoutes:Routes = [
     ConsumerProfileComponent,
     ProviderProfileComponent,
     ProvidersComponent,
-    ProviderProfileConsumerviewComponent
+    ProviderProfileConsumerviewComponent,
+    AdminLoginComponent,
+    ProviderRequestsComponent
   ],
   imports: [
     BrowserModule,
