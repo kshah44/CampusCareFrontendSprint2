@@ -11,9 +11,16 @@ export class ProviderProfileComponent implements OnInit {
   providerId:string;
   provider:any;
 
-  constructor(private route:ActivatedRoute, private httpClient:HttpClient) { }
+  constructor(private route:ActivatedRoute, private httpClient:HttpClient, private router:Router) { }
 
   ngOnInit() {
+    let admin = JSON.parse(sessionStorage.getItem("admin"));
+    
+    
+    if(admin == null){
+      this.router.navigate(['./loginadmin']);
+
+    }
     this.providerId = this.route.snapshot.paramMap.get('id');
     console.log(this.providerId);
     this.httpClient.post(`http://localhost:8080/providerid`,{

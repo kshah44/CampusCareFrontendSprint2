@@ -24,6 +24,7 @@ export class ConsumerRequestsComponent implements OnInit {
 
     if(consumer != null){
       this.consumerId = consumer.consumerId;
+      console.log(this.consumerId);
 
     }else{
       this.router.navigate(['./loginconsumer'])

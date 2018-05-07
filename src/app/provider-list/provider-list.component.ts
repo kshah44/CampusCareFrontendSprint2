@@ -16,6 +16,13 @@ export class ProviderListComponent implements OnInit {
   constructor(private httpClient:HttpClient,private router:Router) { }
 
   ngOnInit() {
+    let admin = JSON.parse(sessionStorage.getItem("admin"));
+    
+    
+    if(admin == null){
+      this.router.navigate(['./loginadmin']);
+
+    }
     this.httpClient.get(`http://localhost:8080/providername `)
     .subscribe(
       (data:any) => {
