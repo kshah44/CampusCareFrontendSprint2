@@ -53,6 +53,7 @@ export class ProviderProfileConsumerviewComponent implements OnInit {
   }
 
   newRequest(){
+    
 
     this.httpClient.post("http://localhost:8080/createRequest",{
       providerId: this.providerId,
@@ -63,7 +64,9 @@ export class ProviderProfileConsumerviewComponent implements OnInit {
     }).subscribe(
       (data:any) => {
 
-        // this.provider = data;
+       if(data.requestId == -1 && data.consumerId == -1){ 
+        alert("One request already pending.");
+       }
 
         
 
