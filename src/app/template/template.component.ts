@@ -10,9 +10,19 @@ import {Router} from '@angular/router';
 export class TemplateComponent implements OnInit {
 
   data:any;
+  
+
   constructor(private httpClient:HttpClient,private router:Router) { }
 
   ngOnInit() {
+    let admin = JSON.parse(sessionStorage.getItem("admin"));
+    
+    
+    if(admin == null){
+      this.router.navigate(['./loginadmin']);
+
+    }
+
     this.httpClient.get(`http://localhost:8080/consumername`)
     .subscribe(
       (data:any) => {

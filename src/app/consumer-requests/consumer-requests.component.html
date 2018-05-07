@@ -16,11 +16,11 @@
                 
                 <h3 class="menu-title">Manage Profile</h3><!-- /.menu-title -->
                 <li class="menu-item">
-                    <a routerLink="/providerhome" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Categories</a>
+                    <a routerLink="/consumerhome" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Categories</a>
       
                 </li>
                 <li class="menu-item">
-                  <a routerLink="/providerrequests" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>My Commitments</a>
+                  <a routerLink="/consumerrequests" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>My Requests</a>
     
               </li>
                
@@ -98,20 +98,17 @@
                     <th>Consumer Name</th>
                     <th>Category</th>
                     <th>Status</th>
-                    <th>Approve</th>
-                    <th>Reject</th>
-
+                    
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let request of pendingRequest">
+                  <tr *ngFor="let request of pendingRequests">
                       
                       <td>{{request.fullname}}</td>
                       <td>{{request.categoryName}}</td>
                       <td>{{request.status}}</td>
-                      <td ><button class="btn btn-info" (click) = approveRequest(request.requestId) >Accept</button></td>
-                      <td ><button class="btn btn-info" (click) = rejectRequest(request.requestId) >Reject</button></td>
+                      
                       
                       <!-- <td *ngIf = "!(checkPresence(category.categoryId))"><button class="btn btn-info" (click) = removeItem(category.categoryId) >Remove</button></td>
                       <td *ngIf = "checkPresence(category.categoryId)"><button class="btn btn-info" (click) = addItem(category.categoryId)>Add</button></td> -->
@@ -150,7 +147,7 @@
                       <th>Consumer Name</th>
                       <th>Category</th>
                       <th>Status</th>
-                      <th>Complete</th>
+                      
 
                   
                       
@@ -159,12 +156,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let request of approvedRequest">
+                    <tr *ngFor="let request of approvedRequests">
                         
                         <td>{{request.fullname}}</td>
                         <td>{{request.categoryName}}</td>
                         <td>{{request.status}}</td>
-                        <td><button class="btn btn-info" (click) = completeRequest(request.requestId) >Complete</button></td>
+                       
                        
                         <!-- <td *ngIf = "!(checkPresence(category.categoryId))"><button class="btn btn-info" (click) = removeItem(category.categoryId) >Remove</button></td>
                         <td *ngIf = "checkPresence(category.categoryId)"><button class="btn btn-info" (click) = addItem(category.categoryId)>Add</button></td> -->
@@ -209,7 +206,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let request of completedRequest">
+                      <tr *ngFor="let request of completedRequests">
                           
                           <td>{{request.fullname}}</td>
                           <td>{{request.categoryName}}</td>
@@ -258,7 +255,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let request of rejectedRequest">
+                        <tr *ngFor="let request of cancelledRequests">
                             
                             <td>{{request.fullname}}</td>
                             <td>{{request.categoryName}}</td>

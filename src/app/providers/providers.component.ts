@@ -16,6 +16,7 @@ export class ProvidersComponent implements OnInit {
 
   ngOnInit() {
     this.categoryId = this.route.snapshot.paramMap.get('id');
+    sessionStorage.setItem("tempCategoryId",this.categoryId);
     console.log(this.categoryId);
     this.httpClient.post(`http://localhost:8080/getproviderbycategory`,{
       categoryId: this.categoryId
